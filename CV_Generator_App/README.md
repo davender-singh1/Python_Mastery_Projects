@@ -16,7 +16,8 @@ The Automated CV Generator is a Python application built with the Tkinter librar
 
 1. **Clone the Repository**: Clone this repository to your local machine using the following command:
 
-git clone <repository-url>
+      ```bash
+      git clone https://github.com/davender-singh1/Python_Mastery_Projects.git
 
 
 3. **Run the Application**: Execute the `demo.py` file to launch the automated CV generator application:
