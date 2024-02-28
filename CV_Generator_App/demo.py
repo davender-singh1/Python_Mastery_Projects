@@ -21,13 +21,50 @@ class PDFCV(FPDF):
     
     # Adding contact information header
         self.set_font("Arial", "B", 12)
-        self.cell(0, 10, "Contact Information", 0, 1, "C")
+        self.cell(0, 10, "Contact Information", 0, 1, "L")
+        
+        self.set_font("Arial", "", 10)
+        self.cell(0, 5,"Email: {}".format(email), 0, 1)
+        self.cell(0, 5,"Phone: {}".format(phone_number), 0, 1)
+        self.cell(0, 5,"Address: {}".format(address), 0, 1)
     
+        self.ln(10)
+        self.set_font("Arial","B",12)
+        self.cell(0,10,"Skills",0,1,align="L")
+        
+        self.set_font("Arial","",10)
+        for skill in skills:
+            self.cell(0,5,"- {}".format(skill),0,1)
+    
+        self.ln(10)
+        self.set_font("Arial","B",12)
+        self.cell(0,10,"Work Experience",0,1,align="L")
+        
+        self.set_font("Arial","",10)
+        for experience in work_experience:
+            self.cell(0,5,"{}: {}".format(experience["title"],experience["description"]),0,1)
+            
+            
+        self.ln(10)
+        self.set_font("Arial","B",12)
+        self.cell(0,10,"Education",0,1,align="L")
+        
+        self.set_font("Arial","",10)
+        for education_item in education:
+            self.cell(0,5,"{}: {}".format(education_item["degree"],education_item["university"]),0,1)
+            
+            
+        self.ln(10)
+        self.set_font("Arial","B",12)
+        self.cell(0,10,"About Me",0,1,align="L")
+        
+        self.set_font("Arial","",10)
+        self.multi_cell(0,5,about_me)
+            
+            
         self.output("cv.pdf")
 
-        
-        
-     
+          
 def generate_cv_pdf():
     name = entry_name.get()
     email = entry_email.get()
